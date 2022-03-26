@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.main.mapper.login.UserInfoMapper">
+    <resultMap id="userInfoResultMap" type="com.main.domain.login.UserInfo" >
+        <result column="user_name" property="username" jdbcType="VARCHAR" />
+        <result column="password" property="password" jdbcType="VARCHAR" />
+    </resultMap>
+    <select id="findByUsername" resultMap="userInfoResultMap">
+        SELECT user_name, password FROM user_info WHERE user_name = #{userName}
+    </select>
+    <insert id="create" parameterType="com.main.domain.login.UserInfo">
+        INSERT INTO user_info ( user_name, password )
+        VALUES (#{username}, #{password})
+    </insert>
+    <update id="update" parameterType="com.main.domain.login.UserInfo">
+        UPDATE user_info SET password = #{password}
+        WHERE user_name = #{username}
+    </update>
+</mapper>

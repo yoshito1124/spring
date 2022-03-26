@@ -1,28 +1,24 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>ログイン</title>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>ログイン</title>
 </head>
 <body>
-<div class="container">
-   <p style="text-align: center;">オリジナルログインフォームです</p>
-   <form class="form-signin" th:action="@{/login}" method="post">
-        <div th:if="${showErrorMsg}">
-            ※エラーメッセージ※
-        </div>
-        <div th:if="${showLogoutedMsg}">
-            ※ログアウトメッセージ※
-        </div>
-        <p>
-          <input type="text" id="username" name="username" class="form-control" placeholder="ユーザID" required autofocus>
-        </p>
-        <p>
-          <input type="password" id="password" name="password" class="form-control" placeholder="パスワード" required>
-        </p>
-        <button type="submit">ログイン</button>
-   </form>
-</div>
+	<div class="container">
+		<form class="form-signin" th:action="@{/login}" method="post">
+			<p>
+				<input type="text" id="username" name="username"
+					class="form-control" placeholder="ユーザID" required autofocus>
+			</p>
+			<p>
+				<input type="password" id="password" name="password"
+					class="form-control" placeholder="パスワード" required>
+			</p>
+			<button type="submit">ログイン</button>
+		</form>
+	</div>
 </body>
 </html>
